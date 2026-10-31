@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "common": {
+    "retriever": "Qwen3-VL-Embedding-8B",
+    "vlm_model": "qwen3-vl-8b-instruct",
+    "api_url": "http://localhost:8005/v1",
+    "top_n": 50,
+    "view_size": 10,
+    "max_tokens": 512,
+    "temperature": 0.0,
+    "max_workers": 32,
+    "max_retries": 3,
+    "checkpoint_interval_seconds": 1800.0,
+    "candidate_policy": "head_obs_margin",
+    "candidate_margin_c": 50.0,
+    "candidate_margin_k": 2,
+    "query_policy": "view_pair_entropy",
+    "batch_size": 16,
+    "elo_base_rating": 1500.0,
+    "elo_rating_range": 400.0,
+    "elo_k": 16.0,
+    "elo_scale": 400.0,
+    "elo_max_pair_gap": 0,
+    "budget_points": [
+      4,
+      8,
+      12,
+      16,
+      24
+    ],
+    "primary_budget": 24,
+    "primary_seed": 42,
+    "additional_order_seeds": [
+      2024,
+      3407
+    ],
+    "max_per_query_rule": "min(top_n, 2 * budget_per_query)"
+  },
+  "datasets": {
+    "cirr": {
+      "task_type": "composed_image_retrieval",
+      "retrieval": "data/retrieval/cirr/Qwen3-VL-Embedding-8B_cirr-test_normalized.json",
+      "expected_queries": 4148,
+      "expected_pool_min": 50,
+      "image_dir": "images/cirr",
+      "image_max_size": 768,
+      "image_quality": 85,
+      "reporting": "official_submission"
+    },
+    "circo": {
+      "task_type": "composed_image_retrieval",
+      "retrieval": "data/retrieval/circo/Qwen3-VL-Embedding-8B_circo-test_results.json",
+      "expected_queries": 800,
+      "expected_pool_min": 50,
+      "image_dir": "images/circo",
+      "image_max_size": 0,
+      "image_quality": 85,
+      "reporting": "official_submission"
+    },
+    "photobench-subset03-cn": {
+      "task_type": "text_to_image_retrieval",
+      "retrieval": "data/retrieval/photobench/subset03/cn/Qwen3-VL-Embedding-8B_photobench_normalized.json",
+      "expected_queries": 488,
+      "expected_pool_min": 50,
+      "image_dir": "images/photobench/photo03",
+      "image_max_size": 1120,
+      "image_quality": 85,
+      "reporting": "local_cn_zero_gt_is_zero"
+    },
+    "photobench-subset03-en": {
+      "task_type": "text_to_image_retrieval",
+      "retrieval": "data/retrieval/photobench/subset03/en/Qwen3-VL-Embedding-8B_photobench_normalized.json",
+      "expected_queries": 486,
+      "expected_pool_min": 50,
+      "image_dir": "images/photobench/photo03",
+      "image_max_size": 1120,
+      "image_quality": 85,
+      "reporting": "local_en_zero_gt_is_zero"
+    },
+    "photobench-subset11-cn": {
+      "task_type": "text_to_image_retrieval",
+      "retrieval": "data/retrieval/photobench/subset11/cn/Qwen3-VL-Embedding-8B_photobench_normalized.json",
+      "expected_queries": 336,
+      "expected_pool_min": 50,
+      "image_dir": "images/photobench/photo11",
+      "image_max_size": 1120,
+      "image_quality": 85,
+      "reporting": "local_cn_zero_gt_is_zero"
+    },
+    "photobench-subset11-en": {
+      "task_type": "text_to_image_retrieval",
+      "retrieval": "data/retrieval/photobench/subset11/en/Qwen3-VL-Embedding-8B_photobench_normalized.json",
+      "expected_queries": 336,
+      "expected_pool_min": 50,
+      "image_dir": "images/photobench/photo11",
+      "image_max_size": 1120,
+      "image_quality": 85,
+      "reporting": "local_en_zero_gt_is_zero"
+    },
+    "photobench-subset12-cn": {
+      "task_type": "text_to_image_retrieval",
+      "retrieval": "data/retrieval/photobench/subset12/cn/Qwen3-VL-Embedding-8B_photobench_normalized.json",
+      "expected_queries": 371,
+      "expected_pool_min": 50,
+      "image_dir": "images/photobench/photo12",
+      "image_max_size": 1120,
+      "image_quality": 85,
+      "reporting": "local_cn_zero_gt_is_zero"
+    },
+    "photobench-subset12-en": {
+      "task_type": "text_to_image_retrieval",
+      "retrieval": "data/retrieval/photobench/subset12/en/Qwen3-VL-Embedding-8B_photobench_normalized.json",
+      "expected_queries": 370,
+      "expected_pool_min": 50,
+      "image_dir": "images/photobench/photo12",
+      "image_max_size": 1120,
+      "image_quality": 85,
+      "reporting": "local_en_zero_gt_is_zero"
+    }
+  }
+}
